@@ -1,6 +1,8 @@
-import { BlogModel } from "./Blog.model";
+import { BlogModel, Blogs } from "./Blog.model";
 
-export const BlogState: BlogModel[] = [
+export const BlogState: Blogs = {
+    
+    bloglist: [
         {
             id: 1,
             title: 'Angular',
@@ -16,4 +18,4 @@ export const BlogState: BlogModel[] = [
             title: '.Net',
             description: '.Net is open source'
         },
-    ]
+    ]}

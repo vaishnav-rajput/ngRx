@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { customincrement } from 'src/app/services/store/counter.actions';
 import { CounterModel } from 'src/app/services/store/counter.model';
 import { getchannelname } from 'src/app/services/store/counter.selector';
+import { AppStateModel } from 'src/app/services/store/Global/AppState.model';
 
 @Component({
   selector: 'app-customcounter',
@@ -12,7 +13,7 @@ import { getchannelname } from 'src/app/services/store/counter.selector';
 })
 export class CustomcounterComponent implements OnInit{
 
-  constructor(private store: Store<{counter :CounterModel}>){}
+  constructor(private store: Store<AppStateModel>){}
   counterinput !: number;
   actiontype!: string;
   channelname = ''

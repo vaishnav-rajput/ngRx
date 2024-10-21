@@ -10,10 +10,12 @@ import { CounterdisplayComponent } from './component/counterdisplay/counterdispl
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from "./Material.Module";
 import { CustomcounterComponent } from './component/customcounter/customcounter.component'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { BlogsComponent } from './component/blogs/blogs.component';
 import { blogReducer } from './services/store/blog/Blog.reducers';
+import { AppState } from './services/store/Global/app.state';
+import { AddblogComponent } from './component/addblog/addblog.component';
 
 @NgModule({
   declarations: [
@@ -21,15 +23,17 @@ import { blogReducer } from './services/store/blog/Blog.reducers';
     CounterbuttonComponent,
     CounterdisplayComponent,
     CustomcounterComponent,
-    BlogsComponent
+    BlogsComponent,
+    AddblogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({counter: counterReducer, blog: blogReducer}),
+    StoreModule.forRoot(AppState),
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [],
