@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { decrement, increment, reset } from './counter.actions';
+import { changechannelname, customincrement, decrement, increment, reset } from './counter.actions';
 import {initialState} from "./counter.state"
 const _counterReducer = createReducer(
   initialState,
@@ -20,6 +20,19 @@ const _counterReducer = createReducer(
       ...state,
       counter: 0,
     };
+  }),
+  on(customincrement, (state, action) => {
+    return {
+      ...state,
+      counter: action.action == "add" ?  state.counter + action.value :
+        state.counter - action.value
+    }
+  }),
+  on(changechannelname, (state, action) => {
+    return {
+      ...state,
+      channelname: action.channel
+    }
   })
 );
 
